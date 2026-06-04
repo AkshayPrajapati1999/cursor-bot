@@ -2,9 +2,9 @@ name: Cursor Usage Report
 
 on:
   schedule:
-  # 10:35 AM IST (GMT+05:30), Mon–Fri.
-  # Note: GitHub Actions schedule triggers run on UTC only (10:35 AM IST = 05:05 UTC).
-  - cron: "5 5 * * 1-5"
+  # 10:50 PM IST (GMT+05:30), every day.
+  # Note: GitHub Actions schedule triggers run on UTC only (10:50 PM IST = 17:20 UTC).
+  - cron: "20 17 * * *"
   workflow_dispatch:
 
 permissions:
