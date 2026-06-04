@@ -68,7 +68,7 @@ For automated weekday runs, add `CURSOR_SESSION_TOKEN` and `GOOGLE_CHAT_WEBHOOK`
 
 Reports are captured at high resolution (2560px width, 4× device scale). In Google Chat, **tap the image** or **View full size** to open the full image in your browser (webhook cards do not use the same in-app fullscreen as manual photo uploads).
 
-Schedule: **10:35 AM IST (GMT+05:30)**, Monday–Friday (runs as `5 5 * * 1-5` UTC in the workflow).
+Schedule: **10:50 AM IST (GMT+05:30)**, every day (runs as `20 5 * * *` UTC in the workflow).
 
 ---
 

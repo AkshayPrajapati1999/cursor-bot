@@ -26,10 +26,10 @@ export type GoogleChatPayload =
   | (GoogleChatTextMessage & Partial<GoogleChatCardMessage>);
 
 function webhookUrl(): string {
-  const url = process.env.GOOGLE_CHAT_WEBHOOK?.trim();
+  const url = process.env.GOOGLE_CHAT_WEBHOOKA?.trim();
   if (!url) {
     throw new Error(
-      "GOOGLE_CHAT_WEBHOOK is not set. Add it as a GitHub Actions repository secret.",
+      "GOOGLE_CHAT_WEBHOOKA is not set. Add it as a GitHub Actions repository secret.",
     );
   }
   return url;
