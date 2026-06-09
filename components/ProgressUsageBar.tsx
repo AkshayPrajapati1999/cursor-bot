@@ -12,13 +12,10 @@ interface ProgressUsageBarProps {
 }
 
 const TONES: Record<NonNullable<ProgressUsageBarProps["tone"]>, string> = {
-  green:
-    "from-[hsl(160_84%_45%)] via-[hsl(160_84%_50%)] to-[hsl(180_84%_55%)]",
+  green: "from-[hsl(160_84%_45%)] via-[hsl(160_84%_50%)] to-[hsl(180_84%_55%)]",
   blue: "from-[hsl(199_89%_55%)] via-[hsl(210_89%_60%)] to-[hsl(230_89%_65%)]",
-  purple:
-    "from-[hsl(265_80%_60%)] via-[hsl(280_80%_65%)] to-[hsl(300_80%_70%)]",
-  amber:
-    "from-[hsl(35_92%_55%)] via-[hsl(25_92%_55%)] to-[hsl(15_92%_55%)]",
+  purple: "from-[hsl(265_80%_60%)] via-[hsl(280_80%_65%)] to-[hsl(300_80%_70%)]",
+  amber: "from-[hsl(35_92%_55%)] via-[hsl(25_92%_55%)] to-[hsl(15_92%_55%)]",
 };
 
 export function ProgressUsageBar({
@@ -60,9 +57,7 @@ export function ProgressUsageBar({
           style={{ width: `${width}%` }}
         />
       </div>
-      {sublabel ? (
-        <p className="text-xs text-muted-foreground">{sublabel}</p>
-      ) : null}
+      {sublabel ? <p className="text-xs text-muted-foreground">{sublabel}</p> : null}
     </div>
   );
 }

@@ -48,8 +48,8 @@ export function RecentUsageEvents({ events, totalCount }: RecentUsageEventsProps
       <CardHeader>
         <CardTitle>Recent usage activity</CardTitle>
         <p className="text-xs text-muted-foreground">
-          {totalCount.toLocaleString()} events in cycle · showing newest{" "}
-          {events.length} from Cursor API
+          {totalCount.toLocaleString()} events in cycle · showing newest {events.length}{" "}
+          from Cursor API
         </p>
       </CardHeader>
       <CardContent className="overflow-x-auto">
@@ -58,9 +58,9 @@ export function RecentUsageEvents({ events, totalCount }: RecentUsageEventsProps
             <tr className="border-b border-border text-muted-foreground">
               <th className="pb-2 pr-3 font-medium">Time</th>
               <th className="pb-2 pr-3 font-medium">Model</th>
-              <th className="pb-2 pr-3 font-medium text-right">Tokens</th>
-              <th className="pb-2 pr-3 font-medium text-right">Req. cost</th>
-              <th className="pb-2 font-medium text-right">Charged</th>
+              <th className="pb-2 pr-3 text-right font-medium">Tokens</th>
+              <th className="pb-2 pr-3 text-right font-medium">Req. cost</th>
+              <th className="pb-2 text-right font-medium">Charged</th>
             </tr>
           </thead>
           <tbody>
@@ -69,19 +69,17 @@ export function RecentUsageEvents({ events, totalCount }: RecentUsageEventsProps
                 key={`${event.timestamp}-${i}`}
                 className="border-b border-border/50 text-foreground"
               >
-                <td className="py-2 pr-3 whitespace-nowrap">
+                <td className="whitespace-nowrap py-2 pr-3">
                   {formatEventTime(event.timestamp)}
                 </td>
-                <td className="py-2 pr-3 max-w-[200px] truncate" title={event.model}>
+                <td className="max-w-[200px] truncate py-2 pr-3" title={event.model}>
                   {event.model}
                 </td>
                 <td className="py-2 pr-3 text-right tabular-nums">
                   {formatNumber(eventTokens(event))}
                 </td>
                 <td className="py-2 pr-3 text-right tabular-nums">
-                  {event.requestsCosts != null
-                    ? event.requestsCosts.toFixed(1)
-                    : "—"}
+                  {event.requestsCosts != null ? event.requestsCosts.toFixed(1) : "—"}
                 </td>
                 <td className="py-2 text-right tabular-nums">
                   {formatCents(event.chargedCents)}

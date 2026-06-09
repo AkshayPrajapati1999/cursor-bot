@@ -1,9 +1,4 @@
-export type MembershipType =
-  | "free"
-  | "pro"
-  | "pro_plus"
-  | "business"
-  | string;
+export type MembershipType = "free" | "pro" | "pro_plus" | "business" | string;
 
 export interface BillingCycle {
   start: string;

@@ -21,9 +21,7 @@ function normalizePlan(raw: Record<string, unknown>): UsagePlan {
       }
     : { included: 0, bonus: 0, total: 0 };
 
-  const legacyPct = isRecord(raw.usagePercentages)
-    ? raw.usagePercentages
-    : null;
+  const legacyPct = isRecord(raw.usagePercentages) ? raw.usagePercentages : null;
 
   return {
     enabled: Boolean(raw.enabled),
@@ -32,9 +30,7 @@ function normalizePlan(raw: Record<string, unknown>): UsagePlan {
     remaining: Number(raw.remaining ?? 0),
     breakdown,
     usagePercentages: {
-      autoModel: Number(
-        legacyPct?.autoModel ?? raw.autoPercentUsed ?? 0,
-      ),
+      autoModel: Number(legacyPct?.autoModel ?? raw.autoPercentUsed ?? 0),
       api: Number(legacyPct?.api ?? raw.apiPercentUsed ?? 0),
       total: Number(legacyPct?.total ?? raw.totalPercentUsed ?? 0),
     },
@@ -84,9 +80,7 @@ function isFlatUsageSummary(o: Record<string, unknown>): boolean {
   );
 }
 
-export function normalizeUsageSummary(
-  raw: unknown,
-): UsageSummaryResponse | null {
+export function normalizeUsageSummary(raw: unknown): UsageSummaryResponse | null {
   if (!isRecord(raw)) return null;
 
   if (isLegacyUsageSummary(raw)) {
@@ -180,15 +174,11 @@ export function normalizeAuthMe(raw: unknown): CursorAuthMeResponse | null {
 
 function isModelUsageEntry(v: unknown): v is CursorModelUsage {
   return (
-    isRecord(v) &&
-    typeof v.numRequests === "number" &&
-    typeof v.numTokens === "number"
+    isRecord(v) && typeof v.numRequests === "number" && typeof v.numTokens === "number"
   );
 }
 
-export function normalizeUsageDetail(
-  raw: unknown,
-): CursorUsageDetailResponse | null {
+export function normalizeUsageDetail(raw: unknown): CursorUsageDetailResponse | null {
   if (!isRecord(raw)) return null;
 
   if (isRecord(raw.models)) {
@@ -196,7 +186,7 @@ export function normalizeUsageDetail(
       models: raw.models as Record<string, CursorModelUsage>,
       billing: {
         startOfMonth: String(
-          isRecord(raw.billing) ? raw.billing.startOfMonth ?? "" : "",
+          isRecord(raw.billing) ? (raw.billing.startOfMonth ?? "") : "",
         ),
       },
     };

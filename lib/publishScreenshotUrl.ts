@@ -61,23 +61,22 @@ async function ensureScreenshotBranch(
   const sha = base.object?.sha;
   if (!sha) throw new Error("Missing default branch SHA");
 
-  const create = await fetch(
-    `https://api.github.com/repos/${owner}/${name}/git/refs`,
-    {
-      method: "POST",
-      headers: {
-        ...githubHeaders(token),
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ref: `refs/heads/${SCREENSHOT_BRANCH}`,
-        sha,
-      }),
+  const create = await fetch(`https://api.github.com/repos/${owner}/${name}/git/refs`, {
+    method: "POST",
+    headers: {
+      ...githubHeaders(token),
+      "Content-Type": "application/json",
     },
-  );
+    body: JSON.stringify({
+      ref: `refs/heads/${SCREENSHOT_BRANCH}`,
+      sha,
+    }),
+  });
   if (!create.ok && create.status !== 422) {
     const body = await create.text().catch(() => "");
-    throw new Error(`GitHub branch create failed (${create.status}): ${body.slice(0, 200)}`);
+    throw new Error(
+      `GitHub branch create failed (${create.status}): ${body.slice(0, 200)}`,
+    );
   }
 }
 

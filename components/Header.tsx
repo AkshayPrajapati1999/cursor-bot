@@ -46,9 +46,7 @@ export function Header({
                 {" · "}
               </>
             ) : null}
-            {lastUpdated
-              ? `Updated ${formatTime(lastUpdated)}`
-              : "Awaiting first sync"}
+            {lastUpdated ? `Updated ${formatTime(lastUpdated)}` : "Awaiting first sync"}
           </p>
         </div>
       </div>
@@ -73,12 +71,8 @@ export function Header({
           disabled={pngDisabled || pngLoading}
           aria-label="Download dashboard as PNG"
         >
-          <FileImage
-            className={`h-4 w-4 ${pngLoading ? "animate-pulse" : ""}`}
-          />
-          <span className="hidden sm:inline">
-            {pngLoading ? "Capturing…" : "PNG"}
-          </span>
+          <FileImage className={`h-4 w-4 ${pngLoading ? "animate-pulse" : ""}`} />
+          <span className="hidden sm:inline">{pngLoading ? "Capturing…" : "PNG"}</span>
         </Button>
         <Button
           variant="gradient"

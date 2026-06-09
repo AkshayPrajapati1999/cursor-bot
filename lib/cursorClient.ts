@@ -98,9 +98,7 @@ async function cursorRequest<T>(
       }
     }
   }
-  throw lastErr instanceof Error
-    ? lastErr
-    : new Error(`Failed to fetch ${path}`);
+  throw lastErr instanceof Error ? lastErr : new Error(`Failed to fetch ${path}`);
 }
 
 export function cursorGet<T>(path: string, options?: FetchOptions): Promise<T> {

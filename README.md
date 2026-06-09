@@ -43,11 +43,11 @@ If the dashboard errors with 401/403, sign in again and refresh the token.
 
 **Optional env vars** (see `.env.example`):
 
-| Variable | Purpose |
-| --- | --- |
-| `CURSOR_USER_ID` | Fallback if account lookup fails |
-| `CURSOR_TEAM_ID` | Team filter (default `0` = personal) |
-| `GOOGLE_CHAT_WEBHOOK` | For daily screenshot reports |
+| Variable               | Purpose                                                        |
+| ---------------------- | -------------------------------------------------------------- |
+| `CURSOR_USER_ID`       | Fallback if account lookup fails                               |
+| `CURSOR_TEAM_ID`       | Team filter (default `0` = personal)                           |
+| `GOOGLE_CHAT_WEBHOOK`  | For daily screenshot reports                                   |
 | `NEXT_PUBLIC_BASE_URL` | Base URL for capture scripts (default `http://localhost:3000`) |
 
 ---
@@ -68,7 +68,7 @@ For automated weekday runs, add `CURSOR_SESSION_TOKEN` and `GOOGLE_CHAT_WEBHOOK`
 
 Reports are captured at high resolution (2560px width, 4× device scale). In Google Chat, **tap the image** or **View full size** to open the full image in your browser (webhook cards do not use the same in-app fullscreen as manual photo uploads).
 
-Schedule: **10:50 PM IST (GMT+05:30)**, every day (runs as `20 17 * * *` UTC in the workflow).
+Schedule: **7:00 PM IST (GMT+05:30)**, Monday to Friday (runs as `30 13 * * 1-5` UTC in the workflow).
 
 ---
 

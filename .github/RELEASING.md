@@ -20,10 +20,10 @@ Use this when you ship a new version to everyone who cloned or forked the repo.
    ```markdown
    ## Upgrading
 
-   git remote add upstream https://github.com/vivek-kubvt/CUDashboard.git   # once
+   git remote add upstream https://github.com/vivek-kubvt/CUDashboard.git # once
    git fetch upstream
    git merge upstream/main
-   git push origin main   # if you use a fork
+   git push origin main # if you use a fork
 
    Re-check GitHub Actions secrets if `.github/workflows/` changed.
    ```
@@ -40,11 +40,11 @@ gh release create v1.1.0 --title "v1.1.0" --notes-file CHANGELOG_SNIPPET.md
 
 ## 3. Versioning
 
-| Bump   | When |
-| ------ | ---- |
-| Patch  | Bugfix, docs, small workflow tweak |
-| Minor  | New feature, new env var, non-breaking behavior |
-| Major  | Breaking change (removed secrets, new Node major, API change) |
+| Bump  | When                                                          |
+| ----- | ------------------------------------------------------------- |
+| Patch | Bugfix, docs, small workflow tweak                            |
+| Minor | New feature, new env var, non-breaking behavior               |
+| Major | Breaking change (removed secrets, new Node major, API change) |
 
 ## 4. Tell users
 

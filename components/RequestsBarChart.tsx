@@ -18,10 +18,7 @@ interface RequestsBarChartProps {
   eventsCount?: number;
 }
 
-export function RequestsBarChart({
-  data,
-  eventsCount = 0,
-}: RequestsBarChartProps) {
+export function RequestsBarChart({ data, eventsCount = 0 }: RequestsBarChartProps) {
   const totalRequests = data.reduce((s, d) => s + d.requests, 0);
 
   return (

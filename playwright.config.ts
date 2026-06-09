@@ -10,7 +10,5 @@ export default defineConfig({
     deviceScaleFactor: 2,
     colorScheme: "dark",
   },
-  projects: [
-    { name: "chromium", use: { ...devices["Desktop Chrome"] } },
-  ],
+  projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
 });

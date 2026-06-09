@@ -1,8 +1,5 @@
 import sharp from "sharp";
-import {
-  googleChatMaxImageBytes,
-  screenshotJpegQuality,
-} from "@/lib/screenshotConfig";
+import { googleChatMaxImageBytes, screenshotJpegQuality } from "@/lib/screenshotConfig";
 
 export type PreparedScreenshot = {
   buffer: Buffer;

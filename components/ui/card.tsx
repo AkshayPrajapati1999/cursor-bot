@@ -7,10 +7,7 @@ export const Card = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn(
-      "glass rounded-2xl text-card-foreground animate-fade-in",
-      className,
-    )}
+    className={cn("glass animate-fade-in rounded-2xl text-card-foreground", className)}
     {...props}
   />
 ));
@@ -44,11 +41,7 @@ export const CardDescription = React.forwardRef<
   HTMLParagraphElement,
   React.HTMLAttributes<HTMLParagraphElement>
 >(({ className, ...props }, ref) => (
-  <p
-    ref={ref}
-    className={cn("text-xs text-muted-foreground", className)}
-    {...props}
-  />
+  <p ref={ref} className={cn("text-xs text-muted-foreground", className)} {...props} />
 ));
 CardDescription.displayName = "CardDescription";
 

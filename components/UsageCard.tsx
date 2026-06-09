@@ -35,15 +35,13 @@ export function UsageCard({
       <CardContent>
         <div
           className={cn(
-            "text-2xl font-semibold tracking-tight tabular-nums sm:text-3xl",
+            "text-2xl font-semibold tabular-nums tracking-tight sm:text-3xl",
             TONES[tone],
           )}
         >
           {value}
         </div>
-        {sub ? (
-          <div className="mt-1 text-xs text-muted-foreground">{sub}</div>
-        ) : null}
+        {sub ? <div className="mt-1 text-xs text-muted-foreground">{sub}</div> : null}
       </CardContent>
     </Card>
   );

@@ -1,14 +1,7 @@
 "use client";
 
 import { useCallback, useMemo, useState } from "react";
-import {
-  Cpu,
-  Gauge,
-  Gift,
-  Mail,
-  PiggyBank,
-  Zap,
-} from "lucide-react";
+import { Cpu, Gauge, Gift, Mail, PiggyBank, Zap } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { UsageCard } from "@/components/UsageCard";
@@ -21,12 +14,7 @@ import { DashboardSkeleton } from "@/components/DashboardSkeleton";
 import { ErrorState } from "@/components/ErrorState";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useUsage } from "@/hooks/useUsage";
-import {
-  formatDate,
-  formatNumber,
-  formatPercent,
-  membershipLabel,
-} from "@/lib/utils";
+import { formatDate, formatNumber, formatPercent, membershipLabel } from "@/lib/utils";
 import type { DashboardData } from "@/types/usage";
 import { downloadDashboardPng } from "@/lib/downloadDashboardPng";
 
@@ -50,9 +38,7 @@ export function Dashboard({ initialData }: DashboardProps) {
       includedPct: p.breakdown.total
         ? (p.breakdown.included / p.breakdown.total) * 100
         : 0,
-      bonusPct: p.breakdown.total
-        ? (p.breakdown.bonus / p.breakdown.total) * 100
-        : 0,
+      bonusPct: p.breakdown.total ? (p.breakdown.bonus / p.breakdown.total) * 100 : 0,
     };
   }, [data]);
 
@@ -185,14 +171,8 @@ export function Dashboard({ initialData }: DashboardProps) {
           </section>
 
           <section className="grid grid-cols-1 gap-4 lg:grid-cols-2">
-            <DailyUsageChart
-              data={data.daily}
-              eventsCount={data.usageEventsCount}
-            />
-            <RequestsBarChart
-              data={data.daily}
-              eventsCount={data.usageEventsCount}
-            />
+            <DailyUsageChart data={data.daily} eventsCount={data.usageEventsCount} />
+            <RequestsBarChart data={data.daily} eventsCount={data.usageEventsCount} />
           </section>
 
           <section className="grid grid-cols-1 gap-4 lg:grid-cols-2">

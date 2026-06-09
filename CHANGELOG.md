@@ -8,7 +8,7 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Changed
 
-- Updated daily report schedule to **10:50 PM IST (GMT+05:30)**, every day (scheduled as `20 17 * * *` UTC since GitHub Actions cron triggers run strictly on UTC).
+- Updated daily report schedule to **7:00 PM IST (GMT+05:30)**, Monday to Friday (scheduled as `30 13 * * 1-5` UTC since GitHub Actions cron triggers run strictly on UTC).
 
 ## [1.1.0] - 2026-05-22
 

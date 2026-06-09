@@ -1,4 +1,7 @@
-import { captureDashboardScreenshot, defaultScreenshotPath } from "../lib/captureDashboard";
+import {
+  captureDashboardScreenshot,
+  defaultScreenshotPath,
+} from "../lib/captureDashboard";
 
 async function main() {
   const output = defaultScreenshotPath();

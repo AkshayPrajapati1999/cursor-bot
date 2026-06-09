@@ -61,10 +61,7 @@ export async function captureDashboardScreenshot(
 
     const root = page.locator("#dashboard-root");
     const scrollHeight = await root.evaluate((el) => el.scrollHeight);
-    const height = Math.min(
-      Math.max(scrollHeight + 48, 900),
-      screenshotMaxHeight(),
-    );
+    const height = Math.min(Math.max(scrollHeight + 48, 900), screenshotMaxHeight());
     await page.setViewportSize({ width, height });
     await page.waitForTimeout(400);
 

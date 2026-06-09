@@ -121,17 +121,12 @@ export async function fetchDashboardData(
     (envUserId && !Number.isNaN(Number(envUserId)) ? Number(envUserId) : null);
   const detail = userId ? await fetchUsageDetail(userId, options) : null;
 
-  const events = await fetchUsageEvents(
-    summary.billingCycle,
-    userId,
-  );
+  const events = await fetchUsageEvents(summary.billingCycle, userId);
 
   const daily = buildDailySeriesFromEvents(events, summary.billingCycle);
   const modelsFromEvents = buildModelSlicesFromEvents(events);
   const models =
-    modelsFromEvents.length > 0
-      ? modelsFromEvents
-      : buildModelSlicesFromDetail(detail);
+    modelsFromEvents.length > 0 ? modelsFromEvents : buildModelSlicesFromDetail(detail);
 
   return {
     summary,

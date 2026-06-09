@@ -80,12 +80,8 @@ export function eventTokens(event: CursorUsageEvent): number {
   );
 }
 
-export function sortEventsNewestFirst(
-  events: CursorUsageEvent[],
-): CursorUsageEvent[] {
-  return [...events].sort(
-    (a, b) => Number(b.timestamp) - Number(a.timestamp),
-  );
+export function sortEventsNewestFirst(events: CursorUsageEvent[]): CursorUsageEvent[] {
+  return [...events].sort((a, b) => Number(b.timestamp) - Number(a.timestamp));
 }
 
 export async function fetchUsageEvents(
@@ -118,10 +114,7 @@ export function buildDailySeriesFromEvents(
   now: Date = new Date(),
 ): DailyUsagePoint[] {
   const startMs = utcDayStart(billingCycle.start);
-  const endMs = Math.min(
-    utcDayStart(billingCycle.end),
-    utcDayStart(now),
-  );
+  const endMs = Math.min(utcDayStart(billingCycle.end), utcDayStart(now));
   if (endMs < startMs) return [];
 
   const byDay = new Map<string, { tokens: number; requests: number }>();

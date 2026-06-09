@@ -35,9 +35,7 @@ function webhookUrl(): string {
   return url;
 }
 
-export async function sendGoogleChatMessage(
-  payload: GoogleChatPayload,
-): Promise<void> {
+export async function sendGoogleChatMessage(payload: GoogleChatPayload): Promise<void> {
   const res = await fetch(webhookUrl(), {
     method: "POST",
     headers: { "Content-Type": "application/json; charset=UTF-8" },
@@ -52,9 +50,7 @@ export async function sendGoogleChatMessage(
 }
 
 /** Card with dashboard image — tap image or button to open full size in browser. */
-export function buildScreenshotCard(
-  screenshotUrl: string,
-): GoogleChatCardMessage {
+export function buildScreenshotCard(screenshotUrl: string): GoogleChatCardMessage {
   const openFullSize = {
     openLink: {
       url: screenshotUrl,
@@ -72,8 +68,7 @@ export function buildScreenshotCard(
                 {
                   image: {
                     imageUrl: screenshotUrl,
-                    altText:
-                      "Cursor usage dashboard — tap to open full size",
+                    altText: "Cursor usage dashboard — tap to open full size",
                     onClick: openFullSize,
                   },
                 },
@@ -96,8 +91,6 @@ export function buildScreenshotCard(
   };
 }
 
-export async function sendDashboardScreenshot(
-  screenshotUrl: string,
-): Promise<void> {
+export async function sendDashboardScreenshot(screenshotUrl: string): Promise<void> {
   await sendGoogleChatMessage(buildScreenshotCard(screenshotUrl));
 }

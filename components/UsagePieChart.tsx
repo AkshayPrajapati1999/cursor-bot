@@ -37,7 +37,18 @@ export function UsagePieChart({ data }: UsagePieChartProps) {
               ]}
             />
             <Pie
-              data={data.length ? data : [{ model: "no data", tokens: 1, requests: 0, color: "hsl(220 14% 22%)" }]}
+              data={
+                data.length
+                  ? data
+                  : [
+                      {
+                        model: "no data",
+                        tokens: 1,
+                        requests: 0,
+                        color: "hsl(220 14% 22%)",
+                      },
+                    ]
+              }
               dataKey="tokens"
               nameKey="model"
               innerRadius={56}
